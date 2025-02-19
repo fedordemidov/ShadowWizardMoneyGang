@@ -8,8 +8,15 @@ public class Health : MonoBehaviour
     public void Damage(uint damagePoint)
     {
         health -= damagePoint;
+        if (damagePoint >= health)
+        {
+            health = 0;
+        }
+        if (health == 0)
+        {
+            Destroy(gameObject);
+        }
     }
-
     public void Heal(uint healPoint)
     {
         if (health + healPoint <= maxHealth)
@@ -27,4 +34,5 @@ public class Health : MonoBehaviour
     {
         return maxHealth;
     }
+    
 }

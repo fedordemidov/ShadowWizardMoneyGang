@@ -6,6 +6,7 @@ namespace BigRookGames.Weapons
 {
     public class ProjectileController : MonoBehaviour
     {
+        public uint Damage = 4;
         // --- Config ---
         public float speed = 100;
         public LayerMask collisionLayerMask;
@@ -59,6 +60,12 @@ namespace BigRookGames.Weapons
 
             // --- Destroy this object after 2 seconds. Using a delay because the particle system needs to finish ---
             Destroy(gameObject, 5f);
+
+            if (collision.gameObject.GetComponent<Health>()!=null)//условие сработает тогда когда объект имеет значение Health
+            {
+                collision.gameObject.GetComponent<Health>().Damage(Damage);
+
+            }
         }
 
 

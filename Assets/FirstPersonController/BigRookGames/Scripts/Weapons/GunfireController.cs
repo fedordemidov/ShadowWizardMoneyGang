@@ -1,16 +1,23 @@
-﻿using UnityEngine;
+﻿using Unity.VisualScripting;
+using UnityEngine;
 
 namespace BigRookGames.Weapons
 {
     public class GunfireController : MonoBehaviour, InteractItem
     {
+        public float pokeForce =60.0F;
+        public float radius = 5.0F;
+        public float power ;
+        //---Cooldown---
+        public float cooldown;
+        float lastShot;
         // --- Audio ---
         public AudioClip GunShotClip;
         public AudioClip ReloadClip;
         public AudioSource source;
         public AudioSource reloadSource;
         public Vector2 audioPitch = new Vector2(.9f, 1.1f);
-
+        private float gunHeat;
         // --- Muzzle ---
         public GameObject muzzlePrefab;
         public GameObject muzzlePosition;
@@ -134,7 +141,48 @@ namespace BigRookGames.Weapons
 
         public void Interact()
         {
-            FireWeapon();
+            if (Time.time - lastShot < cooldown)
+            {
+                return;
+            }
+
+            if (Input.GetMouseButtonDown(0))
+            {
+                RaycastHit hit;
+
+
+                var ray = Camera.main.ScreenPointToRay(Input.mousePosition); if (Physics.Raycast(ray, out hit))
+                {
+                    Vector3 explosionPos = hit.point;
+                    if (hit.rigidbody != null)
+                    {
+                       
+                        hit.rigidbody.AddForceAtPosition(ray.direction * pokeForce, hit.point);
+
+
+
+                    }
+                    Collider[] colliders = Physics.OverlapSphere(explosionPos, radius);
+                   
+
+                   
+
+                    
+                    foreach (Collider col in colliders)
+                    {
+                        Rigidbody rb = col.GetComponent<Rigidbody>();
+
+                        if (rb != null)
+                           
+                             rb.AddExplosionForce(power, explosionPos, radius, 0.5F, ForceMode.Impulse);
+                       
+                    }
+                    lastShot = Time.time;
+                    FireWeapon();
+                }
+
+            }
         }
     }
 }
+
