@@ -1,36 +1,32 @@
+using System;
 using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    [SerializeField] private uint health = 100;
-    [SerializeField] private uint maxHealth = 100;
+    public static event Action GetDamage;
+    [SerializeField] private int health = 100;
+    [SerializeField] private int maxHealth = 100;
 
-    public void Damage(uint damagePoint)
+    public void Damage(int damagePoint)
     {
         health -= damagePoint;
-        if (damagePoint >= health)
-        {
-            health = 0;
-        }
-        if (health == 0)
-        {
-            Destroy(gameObject);
-        }
+        GetDamage?.Invoke();
     }
-    public void Heal(uint healPoint)
+    public void Heal(int healPoint)
     {
         if (health + healPoint <= maxHealth)
         {
             health += healPoint;
+            GetDamage?.Invoke();
         }
     }
 
-    public uint GetHealth()
+    public int GetHealth()
     {
         return health;
     }
 
-    public uint GetMaxHealth()
+    public int GetMaxHealth()
     {
         return maxHealth;
     }

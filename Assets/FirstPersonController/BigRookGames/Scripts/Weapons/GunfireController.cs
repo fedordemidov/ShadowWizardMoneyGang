@@ -49,6 +49,7 @@ namespace BigRookGames.Weapons
             if(source != null) source.clip = GunShotClip;
             timeLastFired = 0;
             lastScopeState = scopeActive;
+            lastShot = cooldown;
         }
 
         private void Update()
@@ -141,47 +142,11 @@ namespace BigRookGames.Weapons
 
         public void Interact()
         {
-            if (Time.time - lastShot < cooldown)
+            if ((timeLastFired + shotDelay) > Time.time)
             {
                 return;
             }
-
-            if (Input.GetMouseButtonDown(0))
-            {
-                RaycastHit hit;
-
-
-                var ray = Camera.main.ScreenPointToRay(Input.mousePosition); if (Physics.Raycast(ray, out hit))
-                {
-                    Vector3 explosionPos = hit.point;
-                    if (hit.rigidbody != null)
-                    {
-                       
-                        hit.rigidbody.AddForceAtPosition(ray.direction * pokeForce, hit.point);
-
-
-
-                    }
-                    Collider[] colliders = Physics.OverlapSphere(explosionPos, radius);
-                   
-
-                   
-
-                    
-                    foreach (Collider col in colliders)
-                    {
-                        Rigidbody rb = col.GetComponent<Rigidbody>();
-
-                        if (rb != null)
-                           
-                             rb.AddExplosionForce(power, explosionPos, radius, 0.5F, ForceMode.Impulse);
-                       
-                    }
-                    lastShot = Time.time;
-                    FireWeapon();
-                }
-
-            }
+            FireWeapon();
         }
     }
 }
