@@ -12,4 +12,9 @@ public class AnimatorActivator : MonoBehaviour
             animator.SetBool("run", enemy.pursuit);
         }
     }
+
+    public void DeathAnimation()
+    {
+        animator.SetBool("deth", true);
+    }
 }

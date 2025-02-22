@@ -1199,6 +1199,44 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 450248671}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &505538579 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2355698424758794371, guid: aba10e50d83d36f40a63f084cc66c4af, type: 3}
+  m_PrefabInstance: {fileID: 1230486337}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f44d1cb4700e69548be70ccf5c8dcb7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!195 &505538580 stripped
+NavMeshAgent:
+  m_CorrespondingSourceObject: {fileID: 1090182510268169479, guid: aba10e50d83d36f40a63f084cc66c4af, type: 3}
+  m_PrefabInstance: {fileID: 1230486337}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &505538581 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4139260525558219070, guid: aba10e50d83d36f40a63f084cc66c4af, type: 3}
+  m_PrefabInstance: {fileID: 1230486337}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 640d11a7c3bf57f46a483c4a08900084, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &505538583 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5579271157991854271, guid: aba10e50d83d36f40a63f084cc66c4af, type: 3}
+  m_PrefabInstance: {fileID: 1230486337}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5159732ccce38354e8454b20790d2a90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &529787523
 GameObject:
   m_ObjectHideFlags: 0
@@ -2129,10 +2167,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2355698424758794371, guid: aba10e50d83d36f40a63f084cc66c4af, type: 3}
+      propertyPath: health
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4139260525558219070, guid: aba10e50d83d36f40a63f084cc66c4af, type: 3}
       propertyPath: goal
       value: 
       objectReference: {fileID: 137453088}
+    - target: {fileID: 5960825826061044837, guid: aba10e50d83d36f40a63f084cc66c4af, type: 3}
+      propertyPath: agent
+      value: 
+      objectReference: {fileID: 505538580}
+    - target: {fileID: 5960825826061044837, guid: aba10e50d83d36f40a63f084cc66c4af, type: 3}
+      propertyPath: enemy
+      value: 
+      objectReference: {fileID: 505538579}
+    - target: {fileID: 5960825826061044837, guid: aba10e50d83d36f40a63f084cc66c4af, type: 3}
+      propertyPath: enemyLogic
+      value: 
+      objectReference: {fileID: 505538581}
+    - target: {fileID: 5960825826061044837, guid: aba10e50d83d36f40a63f084cc66c4af, type: 3}
+      propertyPath: animatorActivator
+      value: 
+      objectReference: {fileID: 505538583}
     - target: {fileID: 6674587966114712569, guid: aba10e50d83d36f40a63f084cc66c4af, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.78

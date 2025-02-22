@@ -1,10 +1,14 @@
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.InputSystem;
 
 public class EnemyDeath : MonoBehaviour
 {
     [SerializeField] private Health enemy;
+    [SerializeField] private AnimatorActivator animatorActivator;
+    [SerializeField] private Enemy enemyLogic;
+    [SerializeField] private NavMeshAgent agent;
 
     private void OnEnable()
     {
@@ -31,6 +35,9 @@ public class EnemyDeath : MonoBehaviour
 
     private void Death()
     {
-        Destroy(this.gameObject);
+        animatorActivator.DeathAnimation();
+        enemyLogic.enabled = false;
+        agent.enabled = false;
+        //Destroy(this.gameObject);
     }
 }
