@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu.unity
     guid: 6300c7f201a00e449b318479cec1acf2
   - enabled: 1
+    path: Assets/Scenes/Level.unity
+    guid: 8afe60de074f7384c92a32741e84af20
+  - enabled: 1
     path: Assets/Scenes/FedorRoom.unity
     guid: 4d8f5943c7cb635449a75a0b24acf5c4
   m_configObjects:

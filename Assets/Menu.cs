@@ -5,7 +5,7 @@ public class Menu : MonoBehaviour
 {
     public void PlayGame(int index) 
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + index);
+        SceneManager.LoadScene(index);
     }
     public void PlayOut() 
     {

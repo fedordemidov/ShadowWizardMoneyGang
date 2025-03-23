@@ -9,6 +9,7 @@ public class EnemyDeath : MonoBehaviour
     [SerializeField] private AnimatorActivator animatorActivator;
     [SerializeField] private Enemy enemyLogic;
     [SerializeField] private NavMeshAgent agent;
+    [SerializeField] private Collider colider;
 
     private void OnEnable()
     {
@@ -23,6 +24,7 @@ public class EnemyDeath : MonoBehaviour
     void Start()
     {
         enemy = GetComponent<Health>();
+        colider = GetComponent<Collider>();
     }
 
     private void GetDamage()
@@ -38,6 +40,7 @@ public class EnemyDeath : MonoBehaviour
         animatorActivator.DeathAnimation();
         enemyLogic.enabled = false;
         agent.enabled = false;
+        colider.enabled = false;
         //Destroy(this.gameObject);
     }
 }

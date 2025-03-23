@@ -11,12 +11,16 @@ using UnityEngine.UIElements;
     [SerializeField] private float agrDistance = 20;
     [SerializeField] private float attackDistance = 1;
     [SerializeField] private int damage = 3;
+    [SerializeField] private int couldoun = 1;
+    private float currentCouldoun;
+    private AnimatorActivator animatorActivator;
     public bool pursuit;
 
     void Start()
     {
         // Получение компонента агента
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
+        animatorActivator = GetComponent<AnimatorActivator>();
         // Указаие точки назначения
 
     }
@@ -38,6 +42,12 @@ using UnityEngine.UIElements;
         if (distance <= attackDistance) 
         {
             agent.isStopped = true;
+            Attack();
+        }
+
+        if (currentCouldoun > 0) 
+        {
+            currentCouldoun -= Time.deltaTime;
         }
     }
 
@@ -46,8 +56,10 @@ using UnityEngine.UIElements;
         Health target = goal.gameObject.GetComponent<Health>();
         float distance = Vector3.Distance(goal.position, transform.position);
 
-        if (distance <= attackDistance)
+        if (distance <= attackDistance && currentCouldoun <= 0)
         {
+            animatorActivator.Attack();
+            currentCouldoun = couldoun;
             target.Damage(damage);
         }
     }

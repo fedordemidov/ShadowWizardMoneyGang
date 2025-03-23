@@ -17,4 +17,9 @@ public class AnimatorActivator : MonoBehaviour
     {
         animator.SetBool("deth", true);
     }
+
+    public void Attack()
+    {
+        animator.SetTrigger("attack");
+    }
 }

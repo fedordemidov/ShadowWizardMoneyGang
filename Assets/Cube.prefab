@@ -110,6 +110,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemy: {fileID: 2355698424758794371}
   textDisplay: {fileID: 7964097994549031229}
+  HealthBar: {fileID: 0}
 --- !u!114 &7964097994549031229
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -352,7 +353,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e80c1a2df706d74f99f6392f628e4c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 0}
+  enemy: {fileID: 2355698424758794371}
+  animatorActivator: {fileID: 5579271157991854271}
+  enemyLogic: {fileID: 4139260525558219070}
+  agent: {fileID: 1090182510268169479}
+  colider: {fileID: 0}
 --- !u!114 &4139260525558219070
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -367,7 +372,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   goal: {fileID: 0}
   agrDistance: 30
-  attackDistance: 1
+  attackDistance: 2
   damage: 3
   pursuit: 0
 --- !u!195 &1090182510268169479

@@ -9,7 +9,7 @@ public class KitSpawn : MonoBehaviour
 
     private void Start()
     {
-        currentTime = time;
+        //currentTime = time;
     }
 
     void Update()
